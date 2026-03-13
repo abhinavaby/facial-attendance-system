@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Scanner - Face ID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container glass-panel">
+        <header>
+            <div class="logo-glow"></div>
+            <h1>Attendance Scanner</h1>
+            <p id="status-text">Initializing parameters...</p>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay muted playsinline></video>
+                    <canvas id="overlay"></canvas>
+                    <div class="scanning-bar" id="scanning-bar"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="action-buttons single-btn">
+                    <button id="btn-scan" class="btn primary-btn" disabled>
+                        <span class="icon">🔍</span> Start Scan
+                    </button>
+                    <button id="btn-download" class="btn secondary-btn" style="display: none;">
+                        <span class="icon">⬇️</span> Download Attendance
+                    </button>
+                </div>
+                
+                <div class="profiles-section" style="margin-top: 1rem;">
+                    <h3>Present Students (<span id="present-count">0</span>)</h3>
+                    <ul id="present-list" class="profiles-list">
+                        <!-- Present students will be injected here -->
+                    </ul>
+                </div>
+                
+                <div class="footer-links" style="margin-top: 1rem;">
+                    <a href="edit.html" class="edit-link">⚙️ Add Students</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Load face-api.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+    <script src="scan.js"></script>
+</body>
+</html>

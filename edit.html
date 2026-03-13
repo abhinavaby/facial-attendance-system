@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Student - Face ID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container glass-panel edit-mode">
+        <header>
+            <div class="logo-glow"></div>
+            <h1>Register Student</h1>
+            <p id="status-text">Initializing parameters...</p>
+        </header>
+
+        <main>
+            <div class="video-container small">
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay muted playsinline></video>
+                    <canvas id="overlay"></canvas>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="input-group">
+                    <label for="student-name">Student Name</label>
+                    <input type="text" id="student-name" placeholder="John Doe">
+                </div>
+                <div class="input-group" style="margin-top: 10px;">
+                    <label for="roll-number">Roll Number</label>
+                    <input type="text" id="roll-number" placeholder="CS2501">
+                </div>
+                
+                <div class="action-buttons single-btn">
+                    <button id="btn-save" class="btn primary-btn" disabled>
+                        <span class="icon">📷</span> Save Student Face
+                    </button>
+                </div>
+                
+                <div class="profiles-section">
+                    <h3>Registered Students</h3>
+                    <ul id="profiles-list" class="profiles-list">
+                        <!-- Profiles will be injected here -->
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html" class="edit-link">🔙 Back to Scanner</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Load face-api.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+    <script src="edit.js"></script>
+</body>
+</html>
